@@ -42,21 +42,21 @@
                     scope.value = percent * scope.max;
                 };
                 
-                scope.trackThumb = function() {
+                scope.trackThumb = function() {                    
                     console.log ("Tracking thumb");
                     $document.bind('mousemove.thumb', function(event) {
                         var percent = calculatePercent(seekBar, event);
                         console.log("percent = " + percent);
-                        scope.$apply(function() {
+                       scope.$apply(function() {
                             scope.value = percent * scope.max;
                         });
                     });
  
-     $document.bind('mouseup.thumb', function() {
-         $document.unbind('mousemove.thumb');
-         $document.unbind('mouseup.thumb');
-     });
- };
+                    $document.bind('mouseup.thumb', function() {
+                         $document.unbind('mousemove.thumb');
+                         $document.unbind('mouseup.thumb');
+                    });
+                };
             }
         };
     }
