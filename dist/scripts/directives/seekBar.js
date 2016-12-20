@@ -29,17 +29,24 @@
                 };
                 
                 scope.fillStyle = function(){
-                    return {width: percentString()}  ;
+                    return {width: percentString()};
                 };
                 
+                scope.thumbStyle = function(){
+                    return {left: percentString()};
+                }
+                
                 scope.onClickSeekBar = function(event) {
+                    console.log("Calling onClickSeekBar");
                     var percent = calculatePercent(seekBar, event);
                     scope.value = percent * scope.max;
                 };
                 
                 scope.trackThumb = function() {
+                    console.log ("Tracking thumb");
                     $document.bind('mousemove.thumb', function(event) {
                         var percent = calculatePercent(seekBar, event);
+                        console.log("percent = " + percent);
                         scope.$apply(function() {
                             scope.value = percent * scope.max;
                         });
